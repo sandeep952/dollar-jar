@@ -1,14 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import Persons from './Persons/Persons'
 import './App.css';
+import Layout from './Layout/Layout';
 
 function App() {
     return (
-        <div className="App" >
-
-            <Persons />
-
+        <div className="container" >   
+        <Layout/>
         </div>
     );
 }
