@@ -8,7 +8,6 @@ class DollarJar extends Component {
         this.new_name_tag = React.createRef();
         this.state = {
             personsCount: 3,
-            newPerson: null,
             charge: 10,
             total: 0,
             persons: [
@@ -37,7 +36,10 @@ class DollarJar extends Component {
 
     componentDidMount() {
         this.new_name_tag.current.focus();
+        this.calculateTotal();
     }
+
+    
 
 
     addPersonHandler = () => {
@@ -84,6 +86,7 @@ class DollarJar extends Component {
             }
         }
         updatedPersons[i].amount += parseInt(this.state.charge);
+        this.calculateTotal();
         this.setState({
             persons: updatedPersons
         })
@@ -100,6 +103,7 @@ class DollarJar extends Component {
             }
         }
         updatedPersons[i].amount -= parseInt(this.state.charge);
+        this.calculateTotal();
         this.setState({
             persons: updatedPersons
         })
