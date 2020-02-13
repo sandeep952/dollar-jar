@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import Layout from './Layout/Layout';
+import Welcome from './Welcome';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import Persons from './Persons/Persons';
 
-function App() {
-    return (
-        <div className="container" >   
-        <div className="text-center">
-        <h1>Hello </h1>
-        </div>
-        <Layout/>
-        </div>
-    );
+
+class App extends Component {
+   
+   
+    render() {
+        return (
+
+            <div className="container" >
+                <Router>
+                    <Route exact path="/">
+                        <Welcome />
+                    </Route>
+                    <Route exact path="/dollar-jar"
+                    component={Persons}/>
+                </Router>
+            </div>
+        );
+    }
+
 }
 
 export default App;
