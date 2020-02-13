@@ -9,7 +9,6 @@ let Person = (props) => {
             <p>Amount : {props.amount}</p>
         </div>
 
-        <input type="text" />
         <button className="btn btn-primary" onClick={props.incrementAmount}> Add</button>
         <button className="btn btn-danger" onClick={props.decrementAmount}> Subtract</button>
 
