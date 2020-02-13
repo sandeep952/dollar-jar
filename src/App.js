@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Welcome from './Welcome/Welcome';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Persons from './Persons/Persons';
+import DollarJar from './DollarJar/DollarJar';
 
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
                 <Router>
                     <Route exact path="/" component={Welcome} />
                     <Route exact path="/dollar-jar"
-                        component={Persons} />
+                        component={DollarJar} />
                 </Router>
 
             </div>

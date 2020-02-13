@@ -3,12 +3,13 @@ import Person from './Person/Person'
 import AddPerson from '../AddPerson/AddPerson';
 
 
-class Persons extends Component {
+class DollarJar extends Component {
 
 
     state = {
         personsCount: 3,
         newPerson: null,
+        charge:10,
         total: 0,
         persons: [
             {
@@ -64,7 +65,7 @@ class Persons extends Component {
                 break;
             }
         }
-        updatedPersons[i].amount += 10;
+        updatedPersons[i].amount += parseInt(this.state.charge);
         this.setState({
             persons: updatedPersons
         })
@@ -80,7 +81,7 @@ class Persons extends Component {
                 break;
             }
         }
-        updatedPersons[i].amount -= 10;
+        updatedPersons[i].amount -= parseInt(this.state.charge);
         this.setState({
             persons: updatedPersons
         })
@@ -101,6 +102,14 @@ class Persons extends Component {
 
     }
 
+    configureAmount = (event)=>{
+        let newState = {...this.state}
+        newState.charge = event.target.value;
+        this.setState({
+            ...newState
+        })
+    }
+
 
     render() {
         let username = this.props.location.username
@@ -108,16 +117,33 @@ class Persons extends Component {
             <div className="container">
                 <div className="text-center">
                     <h1>Hello {username}</h1>
-                    <hr/>
+                    <hr />
                 </div>
 
-                <AddPerson
-                    AddPerson={this.addPersonHandler}
-                    onNameChange={this.nameChangeHandler} />
+                <div className="row">
 
-                
+                    <div className="col-md-6">
+                        <div className="configure-amount">
+                            <h5>Configure amount</h5>
+                            <input type="text" 
+                            placeholder="Enter amount"
+                            onChange={this.configureAmount} />
+                         
+                            </div>
+
+
+                    </div>
+                    <div className="col-md-6">
+                        <AddPerson
+                            AddPerson={this.addPersonHandler}
+                            onNameChange={this.nameChangeHandler} />
+
+
+                    </div>
+                </div>
                 <div className="total">
                     <h2> Total : {this.state.total} </h2>
+                    <hr />
                 </div>
 
                 {this.state.persons.map((person) => {
@@ -137,4 +163,4 @@ class Persons extends Component {
     }
 
 }
-export default Persons;
+export default DollarJar;
