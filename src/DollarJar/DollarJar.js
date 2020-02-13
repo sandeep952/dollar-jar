@@ -5,7 +5,7 @@ import Person from './Person/Person'
 class DollarJar extends Component {
     constructor() {
         super();
-        this.myRef = React.createRef();
+        this.new_name_tag = React.createRef();
         this.state = {
             personsCount: 3,
             newPerson: null,
@@ -36,12 +36,12 @@ class DollarJar extends Component {
     }
 
     componentDidMount() {
-        this.myRef.current.focus();
+        this.new_name_tag.current.focus();
     }
 
 
     addPersonHandler = () => {
-        let inputTag = this.myRef.current;
+        let inputTag = this.new_name_tag.current;
         let newCount = this.state.personsCount + 1;
 
         let newPerson = {
@@ -141,7 +141,7 @@ class DollarJar extends Component {
                         <div className="text-center">
                             <h5>Add Person</h5>
                             <input type="text"
-                                ref={this.myRef}
+                                ref={this.new_name_tag}
                                 onChange={this.nameChangeHandler}
                                 placeholder="Enter your name" />
                             <button onClick={this.addPersonHandler} className="btn btn-primary"> Add </button>
