@@ -39,7 +39,7 @@ class Persons extends Component {
                 Persons: newPersons,
                 newPerson:null
             })
-            
+
         }
     }
 
@@ -51,6 +51,35 @@ class Persons extends Component {
         return total;
     }
 
+    incrementAmountHandler=(personId)=>{
+        let updatedPersons = this.state.persons;
+        let i=0;
+        for(i=0;i<updatedPersons.length;i++){
+            if(updatedPersons[i].id===personId){
+                break;
+            }
+        }
+        updatedPersons[i].amount+=10;
+        this.setState({
+            persons:updatedPersons
+        })
+    }
+
+
+    
+    decrementAmountHandler=(personId)=>{
+        let updatedPersons = this.state.persons;
+        let i=0;
+        for(i=0;i<updatedPersons.length;i++){
+            if(updatedPersons[i].id===personId){
+                break;
+            }
+        }
+        updatedPersons[i].amount-=10;
+        this.setState({
+            persons:updatedPersons
+        })
+    }
     nameChangeHandler = (event) => {
         let newName = event.target.value;
         let newPerson= {
@@ -80,6 +109,12 @@ render() {
             return (<Person name={person.name}
                 amount={person.amount}
                 key={person.id}
+                incrementAmount={()=>{
+                    this.incrementAmountHandler(person.id);
+                }}
+                decrementAmount={()=>{
+                    this.decrementAmountHandler(person.id);
+                }}
              />
             )
         })}

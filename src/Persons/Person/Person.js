@@ -4,13 +4,13 @@ import './Person.css'
 let Person = (props) => {
     return (<div className="Person text-center">
         <div>
-        <p>Name : {props.name}</p>    
+        <h2>Name : {props.name}</h2>    
         <p>Amount : {props.amount}</p>
         </div>
 
         <input type="text"/> 
-        <button className="btn btn-primary"> Add</button>
-        <button className="btn btn-danger"> Subtract</button>
+        <button className="btn btn-primary" onClick={props.incrementAmount}> Add</button>
+        <button className="btn btn-danger" onClick={props.decrementAmount}> Subtract</button>
         
     </div>);
 }
