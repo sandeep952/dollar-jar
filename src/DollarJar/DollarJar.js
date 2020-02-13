@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Person from './Person/Person'
-import AddPerson from '../AddPerson/AddPerson';
 
 
 class DollarJar extends Component {
-    constructor(){
+    constructor() {
         super();
         this.myRef = React.createRef();
         this.state = {
@@ -17,7 +16,7 @@ class DollarJar extends Component {
                     name: "Sandeep",
                     amount: 10,
                     id: "1"
-    
+
                 },
                 {
                     name: "Neel",
@@ -29,31 +28,42 @@ class DollarJar extends Component {
                     amount: 30,
                     id: "3"
                 },
-    
-    
+
+
             ]
         }
-    
+
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.myRef.current.focus();
     }
-    
+
 
     addPersonHandler = () => {
-        if (this.state.newPerson) {
-            let inputTag= this.myRef.current;
-            let newPersons = this.state.persons;
-            newPersons.push(this.state.newPerson)
-            this.setState({
-                Persons: newPersons,
-                newPerson: null
-            })
-            inputTag.value="";
-            inputTag.focus();
+        let inputTag = this.myRef.current;
+        let newCount = this.state.personsCount + 1;
+
+        let newPerson = {
+            name: inputTag.value,
+            amount: 0,
+            id: newCount
         }
+        let newPersons = [
+            ...this.state.persons
+        ]
+        newPersons.push(newPerson)
+
+
+        this.setState({
+            persons: newPersons,
+            personsCount: newCount
+        })
+
+        inputTag.value = "";
+        inputTag.focus();
     }
+
 
     calculateTotal = () => {
         let total = 0;
@@ -94,21 +104,7 @@ class DollarJar extends Component {
             persons: updatedPersons
         })
     }
-    nameChangeHandler = (event) => {
-        let newName = event.target.value;
-        let count = this.state.personsCount + 1;
-        let newPerson = {
-            name: newName,
-            amount: 0,
-            id: count
-        }
 
-        this.setState({
-            newPerson: newPerson,
-            personsCount: this.state.personsCount + 1
-        })
-
-    }
 
     configureAmount = (event) => {
         let newState = { ...this.state }
