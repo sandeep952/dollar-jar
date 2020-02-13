@@ -10,8 +10,11 @@ class AddPerson extends Component {
     render(){
         return (<div className="container text-center">
         <div>
-            <h2>Add Person</h2>
-            <input type="text" ref={this.myRef} onChange={this.props.onNameChange} />
+            <h5>Add Person</h5>
+            <input type="text" 
+            ref={this.myRef}
+             onChange={this.props.onNameChange} 
+             placeholder="Enter your name"/>
             <button onClick={this.props.AddPerson} className="btn btn-primary"> Add </button>    
         </div>
 

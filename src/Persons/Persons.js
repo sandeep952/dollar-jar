@@ -7,25 +7,25 @@ class Persons extends Component {
 
 
     state = {
-        personsCount: 0,
+        personsCount: 3,
         newPerson: null,
         total: 0,
         persons: [
             {
                 name: "Sandeep",
                 amount: 10,
-                id: "1a"
+                id: "1"
 
             },
             {
                 name: "Neel",
                 amount: 20,
-                id: "2a"
+                id: "2"
             },
             {
                 name: "Meet",
                 amount: 30,
-                id: "3a"
+                id: "3"
             },
 
 
@@ -108,12 +108,14 @@ class Persons extends Component {
             <div className="container">
                 <div className="text-center">
                     <h1>Hello {username}</h1>
+                    <hr/>
                 </div>
 
                 <AddPerson
                     AddPerson={this.addPersonHandler}
                     onNameChange={this.nameChangeHandler} />
 
+                
                 <div className="total">
                     <h2> Total : {this.state.total} </h2>
                 </div>
