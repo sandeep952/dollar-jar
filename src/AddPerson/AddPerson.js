@@ -7,6 +7,11 @@ class AddPerson extends Component {
         super();
         this.myRef = React.createRef();
     }
+    
+    componentDidMount(){
+        console.log("addperson mounted")
+    }
+
     render() {
         return (<div className="container text-center">
             <div>
@@ -15,7 +20,8 @@ class AddPerson extends Component {
                     ref={this.myRef}
                     onChange={this.props.onNameChange}
                     placeholder="Enter your name" />
-                <button onClick={this.props.AddPerson} className="btn btn-primary"> Add </button>
+                <button onClick={this.props.AddPerson}
+                    className="btn btn-primary"> Add </button>
             </div>
 
         </div>)
