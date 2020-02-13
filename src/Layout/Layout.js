@@ -3,7 +3,6 @@ import Persons from '../Persons/Persons';
 
 let Layout = (props) => {
     return (<div>
-
         <Persons/>
 
     </div>);

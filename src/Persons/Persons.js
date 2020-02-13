@@ -5,7 +5,8 @@ import AddPerson from '../AddPerson/AddPerson';
 
 class Persons extends Component {
     state = {
-        newPerson:"",
+        newPerson: {},
+        total: 0,
         persons: [
             {
                 name: "Sandeep",
@@ -19,32 +20,54 @@ class Persons extends Component {
                 name: "Meet",
                 amount: 30
             },
-            {
-                name: "Surbhi",
-                amount: 30
-            }
+
 
         ]
     }
 
 
-    addPersonHandler(newPerson) {
+    addPersonHandler = () => {
         let newPersons = this.state.persons;
-        newPersons.push(newPerson)
+        newPersons.push(this.state.newPerson)
 
         this.setState({
             Persons: newPersons
         })
     }
 
+    calculateTotal = () => {
+        let total = 0;
+        this.state.persons.forEach((person) => {
+            total += person.amount;
+        })
+        return total;
+    }
+
+    nameChangeHandler = (event) => {
+        let newName = event.target.value;
+        this.setState({
+            newPerson: {
+                name: newName,
+                amount: 0
+            }
+        })
+    }
+
     render() {
         return (<div className="container">
+            <AddPerson
+                AddPerson={this.addPersonHandler}
+                onNameChange={this.nameChangeHandler} />
 
-            <AddPerson AddPerson={this.addPersonHandler}/>
-
+            <div className="total">
+                <h2> Total : {this.calculateTotal()} </h2>
+            </div>
+            
             {this.state.persons.map((person) => {
                 return (<div>
-                    <Person name={person.name} amount={person.amount} />
+                    <Person name={person.name}
+                        amount={person.amount}
+                        key={person.name.substr(0, 3) + Math.random() * 100} />
                 </div>)
             })}
         </div>);

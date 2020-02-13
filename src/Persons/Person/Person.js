@@ -8,9 +8,9 @@ let Person = (props) => {
         <p>Amount : {props.amount}</p>
         </div>
 
-        <input type="text" /> 
-        <button> Add</button>
-        <button> Subtract</button>
+        <input type="text"/> 
+        <button className="btn btn-primary"> Add</button>
+        <button className="btn btn-danger"> Subtract</button>
         
     </div>);
 }
