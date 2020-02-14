@@ -41,7 +41,6 @@ class DollarJar extends Component {
     addPersonHandler = (name) => {
       
         if (name) {
-
             let newPersons = [...this.state.persons];
             let newCount = this.state.personsCount + 1;
             let newPerson = {
