@@ -29,6 +29,7 @@ class Welcome extends Component {
                     <input type="text"
                         placeholder="Enter your name"
                         onChange={this.setName}
+                        value={this.state.username}
                         ref={this.nameRef} />
 
                     <Link to={{

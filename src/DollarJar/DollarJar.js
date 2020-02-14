@@ -136,7 +136,7 @@ class DollarJar extends Component {
                     </div>
                     <div className="col-md-6">
                         <AddPerson
-                            AddPerson={this.addPersonHandler} />
+                            addPerson={this.addPersonHandler} />
 
 
                     </div>
