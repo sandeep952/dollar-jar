@@ -33,6 +33,10 @@ class DollarJar extends Component {
         ]
     }
 
+    componentDidMount = ()=>{
+        this.calculateTotal();
+    }
+
 
     addPersonHandler = (name) => {
       
@@ -53,6 +57,7 @@ class DollarJar extends Component {
             })
 
         }
+        this.calculateTotal();
     }
 
     calculateTotal = () => {
@@ -77,6 +82,7 @@ class DollarJar extends Component {
         this.setState({
             persons: updatedPersons
         })
+        this.calculateTotal();
     }
 
 
@@ -93,6 +99,7 @@ class DollarJar extends Component {
         this.setState({
             persons: updatedPersons
         })
+        this.calculateTotal();
     }
 
     configureAmount = (event)=>{
