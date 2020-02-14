@@ -8,7 +8,6 @@ class DollarJar extends Component {
 
     state = {
         personsCount: 3,
-        newPerson: null,
         charge:10,
         total: 0,
         persons: [
@@ -52,7 +51,8 @@ class DollarJar extends Component {
             newPersons.push(newPerson)
             this.setState({
                 persons: newPersons,
-                personsCount:newCount
+                personsCount:newCount,
+
             })
 
         }
