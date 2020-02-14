@@ -70,7 +70,7 @@ class DollarJar extends Component {
         })
     }
 
-    incrementAmountHandler = (personId) => {
+    handleIncrementAmount = (personId) => {
         let updatedPersons = [...this.state.persons];
         let i = 0;
         for (i = 0; i < updatedPersons.length; i++) {
@@ -89,7 +89,7 @@ class DollarJar extends Component {
 
 
 
-    decrementAmountHandler = (personId) => {
+    handleDecrementAmount = (personId) => {
         let updatedPersons = [...this.state.persons];
         let i = 0;
         for (i = 0; i < updatedPersons.length; i++) {
@@ -149,8 +149,8 @@ class DollarJar extends Component {
 
                 <Persons 
                 persons={this.state.persons}
-                incrementAmountHandler={this.incrementAmountHandler}
-                decrementAmountHandler={this.decrementAmountHandler}
+                handleIncrementAmount={this.handleIncrementAmount.bind(this)}
+                handleDecrementAmount={this.handleDecrementAmount.bind(this)}
                 />
 
             </div>);
