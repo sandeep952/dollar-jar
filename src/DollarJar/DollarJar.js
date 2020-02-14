@@ -71,24 +71,26 @@ class DollarJar extends Component {
     }
 
     incrementAmountHandler = (personId) => {
-        let updatedPersons = this.state.persons;
+        let updatedPersons = [...this.state.persons];
         let i = 0;
         for (i = 0; i < updatedPersons.length; i++) {
             if (updatedPersons[i].id === personId) {
                 break;
             }
         }
+
         updatedPersons[i].amount += parseInt(this.state.charge);
         this.setState({
             persons: updatedPersons
         })
+
         this.calculateTotal();
     }
 
 
 
     decrementAmountHandler = (personId) => {
-        let updatedPersons = this.state.persons;
+        let updatedPersons = [...this.state.persons];
         let i = 0;
         for (i = 0; i < updatedPersons.length; i++) {
             if (updatedPersons[i].id === personId) {
