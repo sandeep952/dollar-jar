@@ -14,7 +14,6 @@ class AddPerson extends Component {
 
     handleNameChange(event) {
         let newName = event.target.value;
-        newName = newName.trim();
         this.setState({
             name: newName
         })
@@ -28,11 +27,13 @@ class AddPerson extends Component {
     }
 
     handleAddButtonClick() {
-        this.props.addPerson(this.state.name)
-        
+        let newName = this.state.name.trim();
+        this.props.addPerson(newName)
         this.setState({
             name: ""
         })
+
+        
 
     }
 

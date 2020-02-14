@@ -8,7 +8,7 @@ class DollarJar extends Component {
 
     state = {
         personsCount: 3,
-        charge:10,
+        charge: 10,
         total: 0,
         persons: [
             {
@@ -32,26 +32,26 @@ class DollarJar extends Component {
         ]
     }
 
-    componentDidMount = ()=>{
+    componentDidMount = () => {
         this.calculateTotal();
     }
 
 
     addPersonHandler = (name) => {
-      
+
         if (name) {
             let newPersons = [...this.state.persons];
             let newCount = this.state.personsCount + 1;
             let newPerson = {
-                name:name,
-                amount:0,
-                id:newCount
+                name: name,
+                amount: 0,
+                id: newCount
             }
 
             newPersons.push(newPerson)
             this.setState({
                 persons: newPersons,
-                personsCount:newCount,
+                personsCount: newCount,
 
             })
 
@@ -103,12 +103,16 @@ class DollarJar extends Component {
         this.calculateTotal();
     }
 
-    configureAmount = (event)=>{
-        let newState = {...this.state}
-        newState.charge = event.target.value;
-        this.setState({
-            ...newState
-        })
+    configureAmount = (event) => {
+        let newCharge = event.target.value
+        if(!isNaN(newCharge)){
+            let newState = { ...this.state }      
+            newState.charge = event.target.value;
+            this.setState({
+                ...newState
+            })
+        }
+        
     }
 
 
@@ -126,11 +130,11 @@ class DollarJar extends Component {
                     <div className="col-md-6">
                         <div className="configure-amount">
                             <h5>Configure amount :<strong> {this.state.charge} </strong></h5>
-                            <input type="number" 
-                            placeholder="Enter amount"
-                            onChange={this.configureAmount} value={this.state.charge} />
-                         
-                            </div>
+                            <input type="number"
+                                placeholder="Enter amount"
+                                onChange={this.configureAmount} value={this.state.charge} />
+
+                        </div>
 
 
                     </div>
@@ -145,11 +149,10 @@ class DollarJar extends Component {
                     <h2> Total : {this.state.total} </h2>
                     <hr />
                 </div>
-
-                <Persons 
-                persons={this.state.persons}
-                handleIncrementAmount={this.handleIncrementAmount.bind(this)}
-                handleDecrementAmount={this.handleDecrementAmount.bind(this)}
+                <Persons
+                    persons={this.state.persons}
+                    handleIncrementAmount={this.handleIncrementAmount.bind(this)}
+                    handleDecrementAmount={this.handleDecrementAmount.bind(this)}
                 />
 
             </div>);
