@@ -14,20 +14,9 @@ class DollarJar extends Component {
             {
                 name: "Sandeep",
                 amount: 10,
-                id: "1"
+                id: 1
 
             },
-            {
-                name: "Neel",
-                amount: 20,
-                id: "2"
-            },
-            {
-                name: "Meet",
-                amount: 30,
-                id: "3"
-            },
-
 
         ]
     }
@@ -105,14 +94,14 @@ class DollarJar extends Component {
 
     configureAmount = (event) => {
         let newCharge = event.target.value
-        if(!isNaN(newCharge)){
-            let newState = { ...this.state }      
-            newState.charge = event.target.value;
+       
+        if (!isNaN(newCharge)) {
             this.setState({
-                ...newState
+                charge: newCharge
             })
+
         }
-        
+
     }
 
 
@@ -130,13 +119,12 @@ class DollarJar extends Component {
                     <div className="col-md-6">
                         <div className="configure-amount">
                             <h5>Configure amount :<strong> {this.state.charge} </strong></h5>
-                            <input type="number"
+                            <input type="text"
                                 placeholder="Enter amount"
                                 onChange={this.configureAmount} value={this.state.charge} />
 
                         </div>
-
-
+              
                     </div>
                     <div className="col-md-6">
                         <AddPerson
