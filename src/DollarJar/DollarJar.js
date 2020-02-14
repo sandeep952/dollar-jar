@@ -34,14 +34,22 @@ class DollarJar extends Component {
     }
 
 
-    addPersonHandler = () => {
-        if (this.state.newPerson) {
+    addPersonHandler = (name) => {
+      
+        if (name) {
 
-            let newPersons = this.state.persons;
-            newPersons.push(this.state.newPerson)
+            let newPersons = [...this.state.persons];
+            let newCount = this.state.personsCount + 1;
+            let newPerson = {
+                name:name,
+                amount:0,
+                id:newCount
+            }
+
+            newPersons.push(newPerson)
             this.setState({
-                Persons: newPersons,
-                newPerson: null
+                persons: newPersons,
+                personsCount:newCount
             })
 
         }
@@ -86,21 +94,6 @@ class DollarJar extends Component {
             persons: updatedPersons
         })
     }
-    nameChangeHandler = (event) => {
-        let newName = event.target.value;
-        let count = this.state.personsCount + 1;
-        let newPerson = {
-            name: newName,
-            amount: 0,
-            id: count
-        }
-
-        this.setState({
-            newPerson: newPerson,
-            personsCount: this.state.personsCount + 1
-        })
-
-    }
 
     configureAmount = (event)=>{
         let newState = {...this.state}
@@ -135,8 +128,7 @@ class DollarJar extends Component {
                     </div>
                     <div className="col-md-6">
                         <AddPerson
-                            AddPerson={this.addPersonHandler}
-                            onNameChange={this.nameChangeHandler} />
+                            AddPerson={this.addPersonHandler} />
 
 
                     </div>
