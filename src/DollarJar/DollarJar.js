@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Person from './Person/Person'
+import Persons from './Persons/Persons'
 import AddPerson from '../AddPerson/AddPerson';
 
 
@@ -147,19 +147,12 @@ class DollarJar extends Component {
                     <hr />
                 </div>
 
-                {this.state.persons.map((person) => {
-                    return (<Person name={person.name}
-                        amount={person.amount}
-                        key={person.id}
-                        incrementAmount={() => {
-                            this.incrementAmountHandler(person.id);
-                        }}
-                        decrementAmount={() => {
-                            this.decrementAmountHandler(person.id);
-                        }}
-                    />
-                    )
-                })}
+                <Persons 
+                persons={this.state.persons}
+                incrementAmountHandler={this.incrementAmountHandler}
+                decrementAmountHandler={this.decrementAmountHandler}
+                />
+
             </div>);
     }
 
