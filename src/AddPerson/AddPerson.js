@@ -13,7 +13,7 @@ class AddPerson extends Component {
         let name = inputTag.value;
         this.input_name_Ref.current.value="";   
         this.input_name_Ref.current.focus();
-        return name;
+        this.props.AddPerson(name);
     }
 
 
@@ -31,10 +31,9 @@ class AddPerson extends Component {
                     ref={this.input_name_Ref}
                     onChange={this.props.onNameChange}
                     placeholder="Enter your name" />
-                <button onClick={()=>{
-                    let name = this.getName();
-                    this.props.AddPerson(name);
-                }}
+                <button onClick={this.getName}
+                    
+                
                     className="btn btn-primary"> Add </button>
             </div>
 
