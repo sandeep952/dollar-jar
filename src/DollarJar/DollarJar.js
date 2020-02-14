@@ -127,7 +127,7 @@ class DollarJar extends Component {
                     <div className="col-md-6">
                         <div className="configure-amount">
                             <h5>Configure amount :<strong> {this.state.charge} </strong></h5>
-                            <input type="text" 
+                            <input type="number" 
                             placeholder="Enter amount"
                             onChange={this.configureAmount} value={this.state.charge} />
                          
