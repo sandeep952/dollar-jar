@@ -11,13 +11,15 @@ class AddPerson extends Component {
     getName = ()=>{
         let inputTag =this.input_name_Ref.current;
         let name = inputTag.value;
+        this.input_name_Ref.current.value="";   
+        this.input_name_Ref.current.focus();
         return name;
     }
 
 
     
     componentDidMount(){
-        console.log("addperson mounted")
+        this.input_name_Ref.current.focus();
         
     }
 
@@ -31,7 +33,6 @@ class AddPerson extends Component {
                     placeholder="Enter your name" />
                 <button onClick={()=>{
                     let name = this.getName();
-                    this.input_name_Ref.current.value="";
                     this.props.AddPerson(name);
                 }}
                     className="btn btn-primary"> Add </button>
