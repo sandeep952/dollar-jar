@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import './Welcome.css'
 class welcome extends Component {
+    constructor(){
+        super();
+        this.nameRef=React.createRef();
+    }
+
     state = {
         username: ""
     }
@@ -10,6 +15,11 @@ class welcome extends Component {
             username: event.target.value
         })
     }
+
+    componentDidMount = ()=>{
+        this.nameRef.current.focus();
+    }
+
     render() {
         return (
             <div className="jumbotron welcome text-center ">
@@ -17,7 +27,8 @@ class welcome extends Component {
             <h1>Hey there!!</h1>
             <input type="text"
                     placeholder="Enter your name"
-                    onChange={this.setName} />
+                    onChange={this.setName}
+                    ref={this.nameRef} />
             
                 <Link to={{
                     pathname: "/dollar-jar",
