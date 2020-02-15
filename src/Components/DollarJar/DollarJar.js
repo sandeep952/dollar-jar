@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Persons from './Persons/Persons'
-import AddPerson from '../AddPerson/AddPerson';
+import Persons from '../Persons/Persons'
+import AddPerson from '../AddPerson/AddPerson'
 
 
 class DollarJar extends Component {

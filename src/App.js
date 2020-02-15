@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Welcome from './Welcome/Welcome';
+import Welcome from './Components/Welcome/Welcome';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import DollarJar from './DollarJar/DollarJar';
+import DollarJar from './Components/DollarJar/DollarJar';
 
 
 class App extends Component {
