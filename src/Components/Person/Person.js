@@ -3,7 +3,6 @@ import './Person.css'
 
 let Person = (props) => {
     return (<div className="Person text-center">
-       
         <div>
             <h2>Name : {props.name}</h2>
             <p>Amount : {props.amount}</p>

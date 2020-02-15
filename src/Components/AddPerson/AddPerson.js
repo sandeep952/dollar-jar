@@ -10,8 +10,7 @@ class AddPerson extends Component {
             name: ""
         }
     }
-
-
+    
     handleNameChange(event) {
         let newName = event.target.value;
         this.setState({
@@ -33,7 +32,6 @@ class AddPerson extends Component {
             name: ""
         })
 
-        
 
     }
 
