@@ -92,26 +92,28 @@ class DollarJar extends Component {
     }
 
     configureAmount = (event) => {
-        let newCharge = parseInt(event.target.value.trim())
-        
-        if(isNaN(newCharge)|| newCharge===""){
+        let newCharge = event.target.value.trim()
+        if (newCharge === "") {
             this.setState({
                 charge: 0
             })
+        }
+        else {
+            newCharge = parseInt(event.target.value)
+            if (!isNaN(newCharge)) {
+                this.setState({
+                    charge: newCharge
+                })
+            }
 
         }
-        else  {
-            this.setState({
-                charge: newCharge
-            })
-
-        }
-       
     }
 
 
+
+
     render() {
-       
+
         let username = this.props.location.username
         return (
             <div className="container">
@@ -125,12 +127,12 @@ class DollarJar extends Component {
                     <div className="col-md-6">
                         <div className="configure-amount">
                             <h5>Configure amount :<strong> {this.state.charge} </strong></h5>
-                            <input type="number"
+                            <input type="text"
                                 placeholder="Enter amount"
                                 onChange={this.configureAmount} value={this.state.charge} />
 
                         </div>
-              
+
                     </div>
                     <div className="col-md-6">
                         <AddPerson
