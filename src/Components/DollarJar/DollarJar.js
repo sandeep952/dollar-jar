@@ -32,7 +32,7 @@ class DollarJar extends Component {
     }
 
 
-    addPersonHandler = (name) => {
+    addPerson = (name) => {
 
         if (name) {
             let newPersons = [...this.state.persons];
@@ -142,7 +142,7 @@ class DollarJar extends Component {
                     </div>
                     <div className="col-md-6">
                         <AddPerson
-                            addPerson={this.addPersonHandler} />
+                            addPerson={this.addPerson} />
 
 
                     </div>
