@@ -8,12 +8,24 @@ class Welcome extends Component {
     }
 
     state = {
-        username: ""
+        username: "",
+        disabled: true
     }
     setName = (event) => {
-        this.setState({
-            username: event.target.value
-        })
+        let newName = event.target.value.trim();
+        if (newName === "") {
+            this.setState({
+                username:newName,
+                disabled: true
+            })
+        }
+        else {
+            this.setState({
+                username: newName,
+                disabled: false
+            })
+        }
+
     }
 
     componentDidMount = () => {
@@ -36,7 +48,7 @@ class Welcome extends Component {
                         pathname: "/dollar-jar",
                         username: this.state.username
                     }}>
-                        <input type="submit" className="btn btn-primary" value="submit"/> 
+                        <input type="submit" disabled={this.state.disabled} className="btn btn-primary" value="submit" />
 
                     </Link>
                 </form>

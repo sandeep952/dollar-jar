@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import Persons from '../Persons/Persons'
 import AddPerson from '../AddPerson/AddPerson'
-
+import  { Redirect } from 'react-router-dom'
 
 class DollarJar extends Component {
 
+    constructor(){
+        super()
+        console.log(window.performance.navigation)
+        // if(window.performance.navigation.type===1){
+        //     return  (<Redirect to='/dollar-jar'/>)   
+        // }
+    }
 
     state = {
         personsCount: 1,
