@@ -4,27 +4,27 @@ import AddPerson from '../AddPerson/AddPerson'
 
 class DollarJar extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        console.log(performance.navigation.type)
-        if(performance.navigation.type===1){
-            this.props.history.push('/');   
+        // if(performance.navigation.type===1){
+        //     this.props.history.push('/');   
+        // }
+
+        this.state = {
+            personsCount: 1,
+            charge: 10,
+            total: 0,
+            persons: [
+                {
+                    name: "Sandeep",
+                    amount: 10,
+                    id: 1
+
+                },
+
+            ]
         }
-    }
 
-    state = {
-        personsCount: 1,
-        charge: 10,
-        total: 0,
-        persons: [
-            {
-                name: "Sandeep",
-                amount: 10,
-                id: 1
-
-            },
-
-        ]
     }
 
     componentDidMount = () => {

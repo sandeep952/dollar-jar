@@ -5,17 +5,18 @@ class Welcome extends Component {
     constructor() {
         super();
         this.nameRef = React.createRef();
+        this.state = {
+            username: "",
+            disabled: true
+        }
     }
 
-    state = {
-        username: "",
-        disabled: true
-    }
+
     setName = (event) => {
         let newName = event.target.value.trim();
         if (newName === "") {
             this.setState({
-                username:newName,
+                username: newName,
                 disabled: true
             })
         }
