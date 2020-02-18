@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import Persons from '../Persons/Persons'
 import AddPerson from '../AddPerson/AddPerson'
-
 class DollarJar extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        console.log(performance.navigation.type)
-        if(performance.navigation.type===1){
-            this.props.history.push('/');   
-        }
+        
+        this.componentWillMount.bind(this)
     }
+
+    componentWillMount() {
+        console.log(this.props)
+       
+
+        if (!this.props.username) {
+         window.location.replace('/')
+        }
+        
+    }
+
+    
 
     state = {
         personsCount: 1,
@@ -120,7 +129,7 @@ class DollarJar extends Component {
 
     render() {
 
-        let username = this.props.location.username
+        let username = this.props.username
         return (
             <div className="container">
                 <div className="text-center">

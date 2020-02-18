@@ -2,29 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import './Welcome.css'
 class Welcome extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.nameRef = React.createRef();
-    }
-
-    state = {
-        username: "",
-        disabled: true
-    }
-    setName = (event) => {
-        let newName = event.target.value.trim();
-        if (newName === "") {
-            this.setState({
-                username:newName,
-                disabled: true
-            })
-        }
-        else {
-            this.setState({
-                username: newName,
-                disabled: false
-            })
-        }
+        console.log(this.props)
 
     }
 
@@ -40,16 +21,12 @@ class Welcome extends Component {
                 <form>
                     <input type="text"
                         placeholder="Enter your name"
-                        onChange={this.setName}
-                        value={this.state.username}
+                        onChange={(event) => this.props.changeUsername(event.target.value.trim())}
+                        value={this.props.username}
                         ref={this.nameRef} />
 
-                    <Link to={{
-                        pathname: "/dollar-jar",
-                        username: this.state.username
-                    }}>
-                        <input type="submit" disabled={this.state.disabled} className="btn btn-primary" value="submit" />
-
+                    <Link to="/dollar-jar">
+                        <input type="submit" disabled={this.props.username.length>0?false:true} className="btn btn-primary" value="submit" />
                     </Link>
                 </form>
 
