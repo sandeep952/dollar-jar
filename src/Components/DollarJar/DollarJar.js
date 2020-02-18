@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import Persons from '../Persons/Persons'
 import AddPerson from '../AddPerson/AddPerson'
-
 class DollarJar extends Component {
 
     constructor(props) {
         super(props)
-        // if(performance.navigation.type===1){
-        //     this.props.history.push('/');   
-        // }
+        
+        this.componentWillMount.bind(this)
 
-        this.state = {
+        state = {
             personsCount: 1,
             charge: 10,
             total: 0,
@@ -19,13 +17,25 @@ class DollarJar extends Component {
                     name: "Sandeep",
                     amount: 10,
                     id: 1
-
+    
                 },
-
             ]
+    
         }
-
     }
+
+    componentWillMount() {
+        console.log(this.props)
+       
+
+        if (!this.props.username) {
+         window.location.replace('/')
+        }
+        
+    }
+
+    
+
 
     componentDidMount = () => {
         this.calculateTotal();
@@ -120,7 +130,7 @@ class DollarJar extends Component {
 
     render() {
 
-        let username = this.props.location.username
+        let username = this.props.username
         return (
             <div className="container">
                 <div className="text-center">
