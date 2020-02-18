@@ -8,7 +8,7 @@ class DollarJar extends Component {
         
         this.componentWillMount.bind(this)
 
-        state = {
+        this.state = {
             personsCount: 1,
             charge: 10,
             total: 0,
